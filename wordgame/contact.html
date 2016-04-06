@@ -1,0 +1,138 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Word Processing System</title>
+  <script src="/js/jquery-1.12.0.js"></script>
+  <script src="/js/div_effect.js"></script>
+<link href="/css/styles.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css' />
+
+</head>
+<body>
+<div class="header-wrapper">
+  <div class="clearing"></div>
+  <div class="logo-search-wrapper">
+    <div class="logo-search-container">
+      <div class="logo"> Word Processing System</div>
+            <input type="radio" name="math_group" checked="checked" value="word"  />
+    <label for="word">Word Processor</label>
+  
+          <input type="radio" name="math_group" value="advance" />
+    <label for="advance">Advance Operations</label>
+
+    <input type="radio" name="math_group" value="history" />
+    <label for="history">History</label>
+
+
+
+
+      <div class="search">
+        <ul>
+          <li class="search-input">
+            <h4>Welcome {{nickname}},</h4><a href={{logout_url}}>signout</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main-content-wrapper">
+
+
+
+  <div class="left-column" id="word_div">
+    <div class="left-col-content ">
+      <div class="left-col-content-title">
+        <h1>Enter the text here</h1>
+      </div>
+      <h2>After entering the text, Click 'Process it'</h2>
+    </div>
+
+      <div class="contact-form margin-top">
+    <form action="/sign" method="post">
+        <label> <span>Message</span>
+        <textarea class="message" name="feedback" id="feedback"></textarea>
+        </label>
+        <label> <span>Filter</span>
+ <select name='pref'>
+  <option value="browse">Browse this Text</option>
+  <option value="palindrome">Check Palindromes</option>
+  <option value="reverse">Reverse the Text</option>
+  <option value="count">Word count</option>
+    <option value="sort">Sort with length</option>
+    <option value="digit">Check the digits</option>
+</select> 
+        </label>
+              <div><input type="submit" value="Process it"></div>
+    </form>
+        <label> <span>Processed Messages : {{count}}</span>
+          {{pros}}
+
+        <label> 
+      </div>
+
+   
+
+  </div>
+
+  <!--second div-->
+
+    <div class="left-column" id="advance_div">
+    <div class="left-col-content ">
+      <div class="left-col-content-title">
+        <h1>Enter the text here</h1>
+      </div>
+      <h2>After entering the text, Click 'Process it'</h2>
+    </div>
+
+      <div class="contact-form margin-top">
+    <form action="/sign" method="post">
+        <label> <span>Message1</span>
+        <textarea class="message" name="feedback" id="feedback"></textarea>
+        <span>Message2</span>
+        <textarea class="message" name="feedback2" id="feedback2"></textarea>
+        </label>
+        <label> <span>Filter</span>
+ <select name='pref'>
+    <option value="compare">Compare</option>
+<option value="merge">Merge</option>
+</select> 
+        </label>
+              <div><input type="submit" value="Process it"></div>
+    </form>
+        <label> <span>Processed Messages : {{count}}</span>
+          {{pros}}
+
+        <label> 
+      </div>
+
+   
+
+  </div>
+  <!--second div-->
+
+
+
+  <!--second div-->
+  <div class="left-column" id="history_div">
+    <div class="left-col-content ">
+      <div class="left-col-content-title">
+        <h1>History</h1>
+      </div>
+      <h2>History of words </h2>
+    </div>
+              <div class="contact-form margin-top">
+    {% for k in pros_arr %}
+        <blockquote>{{ k }}</blockquote>
+    {% endfor %}
+        </label>
+      </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
